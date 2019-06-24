@@ -55,4 +55,6 @@ RUN wget https://github.com/swoole/swoole-src/archive/v${SWOOLE_VERSION}.tar.gz 
 
 WORKDIR /web
 
+EXPOSE 9501 443 80
+
 CMD bash
