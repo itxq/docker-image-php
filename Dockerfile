@@ -1,8 +1,8 @@
-FROM php:7.3
+FROM php:7.4
 
 # Version
-ENV PHPREDIS_VERSION 4.3.0
-ENV SWOOLE_VERSION 4.3.5
+ENV PHPREDIS_VERSION 5.2.1
+ENV SWOOLE_VERSION 4.4.17
 
 # Timezone
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
@@ -19,6 +19,7 @@ RUN apt-get update \
     libssl-dev \
     libnghttp2-dev \
     libpcre3-dev \
+    supervisor \
     && apt-get clean \
     && apt-get autoremove
 
@@ -55,6 +56,6 @@ RUN wget https://github.com/swoole/swoole-src/archive/v${SWOOLE_VERSION}.tar.gz 
 
 WORKDIR /web
 
-EXPOSE 9501 443 80
+EXPOSE 9000 443 80
 
 CMD bash
